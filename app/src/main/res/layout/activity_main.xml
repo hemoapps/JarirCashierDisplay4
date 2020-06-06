@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll_view"
+        android:layout_weight="1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:onClick="clearFocusTwo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="2dp"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="CASHIER STANDS MONITORING REPORT    "
+                    android:textColor="#0B25B1"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/branch_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:hint="Branch"
+                    android:textSize="14sp"
+                    android:maxLines="1"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout"
+                android:layout_gravity="center"
+                android:background="@android:color/white"
+                android:gravity="center_horizontal">
+
+                <EditText
+                    android:id="@+id/today_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="48dp"
+                    android:hint="Date"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="48dp"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:text="Week 1"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/week"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 1" />
+
+            <LinearLayout
+                android:id="@+id/Table1"
+                style="@style/fullArray">
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c1l"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c1e"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c1r"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 2" />
+
+            <LinearLayout
+                android:id="@+id/Table2"
+                style="@style/fullArray">
+
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c2l"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c2e"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c2r"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 3" />
+
+            <LinearLayout
+                android:id="@+id/Table3"
+                style="@style/fullArray">
+
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c3l"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c3e"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c3r"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 4" />
+
+            <LinearLayout
+                android:id="@+id/Table4"
+                style="@style/fullArray">
+
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c4l"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c4e"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c4r"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 5" />
+
+            <LinearLayout
+                android:id="@+id/Table5"
+                style="@style/fullArray">
+
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c5l"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c5e"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c5r"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 6" />
+
+            <LinearLayout
+                android:id="@+id/Table6"
+                style="@style/fullArray">
+
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c6l"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c6e"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c6r"
+                        style="@style/tablePic"
+                        android:onClick="onClick"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finish"
+        android:onClick="takeScreenShot"/>
+</LinearLayout>

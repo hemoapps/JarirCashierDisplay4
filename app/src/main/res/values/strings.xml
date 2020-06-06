@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Jarir Cashier Display</string>
+
+    <array name="cashierposition">
+        <item>cashier 1</item>
+        <item>cashier 2</item>
+        <item>cashier 3</item>
+        <item>cashier 4</item>
+        <item>cashier 5</item>
+        <item>cashier 6</item>
+        <item>cashier 7</item>
+        <item>cashier 8</item>
+        <item>cashier 9</item>
+        <item>cashier 10</item>
+        <item>cashier 11</item>
+    </array>
+
+</resources>
