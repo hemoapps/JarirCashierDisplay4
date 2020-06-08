@@ -2,6 +2,7 @@ package jarircashierdisplay.hemo7f12;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,11 +16,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -33,6 +36,7 @@ import java.util.Date;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 public class MainActivity extends AppCompatActivity {
     ImageView img;
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView chosen;
     EditText date;
     EditText week;
+    EditText branch;
     public static Bitmap bitScroll;
 
     @SuppressLint("SimpleDateFormat")
@@ -54,9 +59,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         scrollView = findViewById(R.id.scroll_view);
         week = findViewById(R.id.week);
-
+        branch = findViewById(R.id.branch_name);
         date = findViewById(R.id.today_date);
         date.setText(dateFormat.format(new Date()));
+
+        permissionChecker();
+        onKeyListener();
+    }
+
+    private void permissionChecker(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
 
@@ -78,9 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             }
         }
-        onKeyListener();
     }
-
     private void onKeyListener() {
         week.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -118,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
     private void clearFocus() {
         date.clearFocus();
         week.clearFocus();
-        findViewById(R.id.branch_name).clearFocus();
+        branch.clearFocus();
     }
 
     public void clearFocusTwo(View view) {
@@ -316,11 +325,11 @@ public class MainActivity extends AppCompatActivity {
         canvas.drawBitmap(bitScroll,0,0,null);
         pdfDocument.finishPage(page);
 
-        File root = new File(Environment.getExternalStorageDirectory(), "PDF Folder 12");
+        File root = new File(Environment.getExternalStorageDirectory(), "Jarir Cashier Display");
         if (!root.exists()){
             root.mkdir();
         }
-        File file = new File(root,"picture2.pdf");
+        File file = new File(root,"Cashier Display Monitoring.pdf");
         try{
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             pdfDocument.writeTo(fileOutputStream);
@@ -331,8 +340,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"File Not Created",Toast.LENGTH_LONG).show();
         }
         pdfDocument.close();
-
+     Toast.makeText(this,""+file,Toast.LENGTH_LONG).show();
     }
+
+
+
+
 
 }
 
