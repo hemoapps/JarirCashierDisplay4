@@ -1,6 +1,4 @@
-package jarircashierdisplay.hemo7f12;
-
-import java.util.List;
+package jarircashierdisplay.hemo7apps;
 
 public class MyListView {
     public String cp;

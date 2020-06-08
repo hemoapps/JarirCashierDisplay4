@@ -1,8 +1,7 @@
-package jarircashierdisplay.hemo7f12;
+package jarircashierdisplay.hemo7apps;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,13 +15,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
-import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -36,7 +33,6 @@ import java.util.Date;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
 
 public class MainActivity extends AppCompatActivity {
     ImageView img;
@@ -333,14 +329,14 @@ public class MainActivity extends AppCompatActivity {
         try{
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             pdfDocument.writeTo(fileOutputStream);
-            Toast.makeText(this,"File Created Successfully",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"File Created Successfully",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,""+file,Toast.LENGTH_LONG).show();
 
         }catch (IOException e){
             e.printStackTrace();
             Toast.makeText(this,"File Not Created",Toast.LENGTH_LONG).show();
         }
         pdfDocument.close();
-     Toast.makeText(this,""+file,Toast.LENGTH_LONG).show();
     }
 
 

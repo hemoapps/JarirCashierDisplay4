@@ -1,4 +1,4 @@
-package jarircashierdisplay.hemo7f12;
+package jarircashierdisplay.hemo7apps;
 
 import org.junit.Test;
 

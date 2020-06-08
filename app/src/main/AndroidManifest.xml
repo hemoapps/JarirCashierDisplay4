@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="jarircashierdisplay.hemo7f12">
+    package="jarircashierdisplay.hemo7apps">
 
     <uses-permission
         android:name="android.permission.CAMERA"
@@ -23,14 +23,14 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name="jarircashierdisplay.hemo7apps.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test"></activity>
+        <activity android:name="jarircashierdisplay.hemo7apps.test"></activity>
 
     </application>
 

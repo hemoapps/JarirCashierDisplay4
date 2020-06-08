@@ -1,4 +1,4 @@
-package jarircashierdisplay.hemo7f12;
+package jarircashierdisplay.hemo7apps;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
