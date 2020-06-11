@@ -61,9 +61,11 @@ public class MainActivity extends AppCompatActivity {
         date = findViewById(R.id.today_date);
         date.setText(dateFormat.format(new Date()));
 
-        permissionChecker();
+        cameraPermissionChecker();
         onKeyListener();
         cashierNumber();
+        filesPermissionChecker();
+
     }
 
 
@@ -175,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void permissionChecker() {
+    private void cameraPermissionChecker() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
 
@@ -187,19 +189,22 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+
+
+    }
+
+    private void filesPermissionChecker() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
             } else {
                 if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    Toast.makeText(MainActivity.this, "Camera permission was not accepted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Files permission was not accepted", Toast.LENGTH_SHORT).show();
                 }
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
             }
         }
-
     }
-
     private void onKeyListener() {
         week.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -483,6 +488,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ConvertToPDF() {
+        filesPermissionChecker();
+
         PdfDocument pdfDocument = new PdfDocument();
         PdfDocument.PageInfo pi = new PdfDocument.PageInfo.Builder(bitScroll.getWidth(), bitScroll.getHeight(), 1).create();
         PdfDocument.Page page = pdfDocument.startPage(pi);
@@ -507,7 +514,7 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(this, "File Not Created", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "File Not Created , Try Again", Toast.LENGTH_LONG).show();
         }
         pdfDocument.close();
 
@@ -517,6 +524,8 @@ public class MainActivity extends AppCompatActivity {
     public void updateCashiersNumber(View view) {
         cashierNumber();
     }
+
+
 }
 
 
