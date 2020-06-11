@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "620820797096",
+    "firebase_url": "https://cashier-display-jarir.firebaseio.com",
+    "project_id": "cashier-display-jarir",
+    "storage_bucket": "cashier-display-jarir.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620820797096:android:5026e66bfc6378c779d49d",
+        "android_client_info": {
+          "package_name": "jarircashierdisplay.hemo7apps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620820797096-qr20l4cu33591se47e105adu0l4430tf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jarircashierdisplay.hemo7apps",
+            "certificate_hash": "d5509e0f0879a282565d3b69e9070552464db845"
+          }
+        },
+        {
+          "client_id": "620820797096-icjie3mn1n1q2p6cgtdp0vau80dpsp5a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnT1k10Q6hBinXCTYClaEZ0iTIEcyUXlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620820797096-icjie3mn1n1q2p6cgtdp0vau80dpsp5a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

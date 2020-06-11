@@ -19,6 +19,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-analytics:17.4.3'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -32,3 +33,4 @@ dependencies {
         compile.exclude group: "junit", module: "junit"
     }
 }
+apply plugin: 'com.google.gms.google-services'

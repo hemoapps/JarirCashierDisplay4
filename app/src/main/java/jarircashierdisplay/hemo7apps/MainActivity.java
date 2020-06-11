@@ -17,7 +17,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -33,6 +32,9 @@ import java.util.Date;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity {
     ImageView img;
@@ -61,9 +63,119 @@ public class MainActivity extends AppCompatActivity {
 
         permissionChecker();
         onKeyListener();
+        cashierNumber();
     }
 
-    private void permissionChecker(){
+
+    private void cashierNumber() {
+        final CharSequence[] options = {"3 Cashiers", "4 Cashiers", "5 Cashiers", "6 Cashiers", "7 Cashiers", "8 Cashiers", "9 Cashiers", "10 Cashiers"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("How Many Cashiers ?");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @SuppressLint("NewApi")
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (options[item].equals("3 Cashiers")) {
+                findViewById(R.id.cashierFour).setVisibility(GONE);
+                findViewById(R.id.cashierFive).setVisibility(GONE);
+                findViewById(R.id.cashierSix).setVisibility(GONE);
+                findViewById(R.id.cashierSeven).setVisibility(GONE);
+                findViewById(R.id.cashierEight).setVisibility(GONE);
+                findViewById(R.id.cashierNine).setVisibility(GONE);
+                findViewById(R.id.cashierTen).setVisibility(GONE);
+                    Toast.makeText(MainActivity.this, "3 Cashiers", Toast.LENGTH_SHORT).show();
+                } else if (options[item].equals("4 Cashiers")) {
+                    switch (findViewById(R.id.cashierFour).getVisibility()){
+                        case GONE : findViewById(R.id.cashierFour).setVisibility(View.VISIBLE);break;
+
+                    }
+                    findViewById(R.id.cashierFive).setVisibility(GONE);
+                    findViewById(R.id.cashierSix).setVisibility(GONE);
+                    findViewById(R.id.cashierSeven).setVisibility(GONE);
+                    findViewById(R.id.cashierEight).setVisibility(GONE);
+                    findViewById(R.id.cashierNine).setVisibility(GONE);
+                    findViewById(R.id.cashierTen).setVisibility(GONE);
+                    Toast.makeText(MainActivity.this, "4 Cashiers", Toast.LENGTH_SHORT).show();
+
+                } else if (options[item].equals("5 Cashiers")) {
+                    switch (findViewById(R.id.cashierFive).getVisibility()){
+                        case GONE : findViewById(R.id.cashierFive).setVisibility(View.VISIBLE);
+                            findViewById(R.id.cashierFour).setVisibility(VISIBLE);
+                            break;
+                    }
+                    findViewById(R.id.cashierSix).setVisibility(GONE);
+                    findViewById(R.id.cashierSeven).setVisibility(GONE);
+                    findViewById(R.id.cashierEight).setVisibility(GONE);
+                    findViewById(R.id.cashierNine).setVisibility(GONE);
+                    findViewById(R.id.cashierTen).setVisibility(GONE);
+                    Toast.makeText(MainActivity.this, "5 Cashiers", Toast.LENGTH_SHORT).show();
+                } else if (options[item].equals("6 Cashiers")) {
+                    switch (findViewById(R.id.cashierSix).getVisibility()){
+                        case GONE : findViewById(R.id.cashierSix).setVisibility(View.VISIBLE);
+                            findViewById(R.id.cashierFour).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierFive).setVisibility(VISIBLE);
+                        break;
+                    }
+                    findViewById(R.id.cashierSeven).setVisibility(GONE);
+                    findViewById(R.id.cashierEight).setVisibility(GONE);
+                    findViewById(R.id.cashierNine).setVisibility(GONE);
+                    findViewById(R.id.cashierTen).setVisibility(GONE);
+                    Toast.makeText(MainActivity.this, "6 Cashiers", Toast.LENGTH_SHORT).show();
+                } else if (options[item].equals("7 Cashiers")) {
+                    switch (findViewById(R.id.cashierSeven).getVisibility()){
+                        case GONE : findViewById(R.id.cashierSeven).setVisibility(View.VISIBLE);
+                            findViewById(R.id.cashierFour).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierFive).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierSix).setVisibility(VISIBLE);
+                        break;
+                    }
+                    findViewById(R.id.cashierEight).setVisibility(GONE);
+                    findViewById(R.id.cashierNine).setVisibility(GONE);
+                    findViewById(R.id.cashierTen).setVisibility(GONE);
+                    Toast.makeText(MainActivity.this, "7 Cashiers", Toast.LENGTH_SHORT).show();
+                } else if (options[item].equals("8 Cashiers")) {
+                    switch (findViewById(R.id.cashierEight).getVisibility()){
+                        case GONE : findViewById(R.id.cashierEight).setVisibility(View.VISIBLE);
+                            findViewById(R.id.cashierFour).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierFive).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierSix).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierSeven).setVisibility(VISIBLE);
+                        break;
+                    }
+                    findViewById(R.id.cashierNine).setVisibility(GONE);
+                    findViewById(R.id.cashierTen).setVisibility(GONE);
+                    Toast.makeText(MainActivity.this, "8 Cashiers", Toast.LENGTH_SHORT).show();
+                } else if (options[item].equals("9 Cashiers")) {
+                    switch (findViewById(R.id.cashierNine).getVisibility()){
+                        case GONE : findViewById(R.id.cashierNine).setVisibility(View.VISIBLE);
+                            findViewById(R.id.cashierFour).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierFive).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierSix).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierSeven).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierEight).setVisibility(VISIBLE);
+                        break;
+                    }
+                    findViewById(R.id.cashierTen).setVisibility(GONE);
+                    Toast.makeText(MainActivity.this, "9 Cashiers", Toast.LENGTH_SHORT).show();
+                } else if (options[item].equals("10 Cashiers")) {
+                    switch (findViewById(R.id.cashierTen).getVisibility()){
+                        case GONE : findViewById(R.id.cashierTen).setVisibility(View.VISIBLE);
+                        findViewById(R.id.cashierFour).setVisibility(VISIBLE);
+                        findViewById(R.id.cashierFive).setVisibility(VISIBLE);
+                        findViewById(R.id.cashierSix).setVisibility(VISIBLE);
+                        findViewById(R.id.cashierSeven).setVisibility(VISIBLE);
+                        findViewById(R.id.cashierEight).setVisibility(VISIBLE);
+                        findViewById(R.id.cashierNine).setVisibility(VISIBLE);break;
+                    }
+                    findViewById(R.id.cashierTen).setVisibility(View.VISIBLE);
+                    Toast.makeText(MainActivity.this, "10 Cashiers", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.show();
+    }
+
+    private void permissionChecker() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
 
@@ -87,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
     private void onKeyListener() {
         week.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -228,18 +341,77 @@ public class MainActivity extends AppCompatActivity {
                 selectImage();
                 clearFocus();
                 break;
+
+            case R.id.c7l:
+                chosen = findViewById(R.id.c7l);
+                selectImage();
+                clearFocus();
+                break;
+            case R.id.c7e:
+                chosen = findViewById(R.id.c7e);
+                selectImage();
+                clearFocus();
+                break;
+            case R.id.c7r:
+                chosen = findViewById(R.id.c7r);
+                selectImage();
+                clearFocus();
+                break;
+
+            case R.id.c8l:
+                chosen = findViewById(R.id.c8l);
+                selectImage();
+                clearFocus();
+                break;
+            case R.id.c8e:
+                chosen = findViewById(R.id.c8e);
+                selectImage();
+                clearFocus();
+                break;
+            case R.id.c8r:
+                chosen = findViewById(R.id.c8r);
+                selectImage();
+                clearFocus();
+                break;
+
+            case R.id.c9l:
+                chosen = findViewById(R.id.c9l);
+                selectImage();
+                clearFocus();
+                break;
+            case R.id.c9e:
+                chosen = findViewById(R.id.c9e);
+                selectImage();
+                clearFocus();
+                break;
+            case R.id.c9r:
+                chosen = findViewById(R.id.c9r);
+                selectImage();
+                clearFocus();
+                break;
+
+            case R.id.c10l:
+                chosen = findViewById(R.id.c10l);
+                selectImage();
+                clearFocus();
+                break;
+            case R.id.c10e:
+                chosen = findViewById(R.id.c10e);
+                selectImage();
+                clearFocus();
+                break;
+            case R.id.c10r:
+                chosen = findViewById(R.id.c10r);
+                selectImage();
+                clearFocus();
+                break;
+
             default: {
                 Toast.makeText(this, "nothing", Toast.LENGTH_LONG).show();
                 clearFocus();
                 break;
             }
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(android.R.menu.class.getModifiers(), menu);
-        return true;
     }
 
     private void selectImage() {
@@ -295,7 +467,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void takeScreenShot(View view) {
         bitScroll = getBitmapFromView(scrollView, scrollView.getChildAt(0).getHeight(), scrollView.getChildAt(0).getWidth());
-        ConvertToPDF ();
+        ConvertToPDF();
     }
 
     private Bitmap getBitmapFromView(View view, int height, int width) {
@@ -310,41 +482,41 @@ public class MainActivity extends AppCompatActivity {
         return bitmap;
     }
 
-    public void ConvertToPDF (){
+    public void ConvertToPDF() {
         PdfDocument pdfDocument = new PdfDocument();
-        PdfDocument.PageInfo pi = new PdfDocument.PageInfo.Builder(bitScroll.getWidth(),bitScroll.getHeight(),1).create();
+        PdfDocument.PageInfo pi = new PdfDocument.PageInfo.Builder(bitScroll.getWidth(), bitScroll.getHeight(), 1).create();
         PdfDocument.Page page = pdfDocument.startPage(pi);
         Canvas canvas = page.getCanvas();
         Paint paint = new Paint();
         canvas.drawPaint(paint);
-        bitScroll = Bitmap.createScaledBitmap(bitScroll,bitScroll.getWidth(),bitScroll.getHeight(),true);
+        bitScroll = Bitmap.createScaledBitmap(bitScroll, bitScroll.getWidth(), bitScroll.getHeight(), true);
         paint.setColor(Color.BLUE);
-        canvas.drawBitmap(bitScroll,0,0,null);
+        canvas.drawBitmap(bitScroll, 0, 0, null);
         pdfDocument.finishPage(page);
 
         File root = new File(Environment.getExternalStorageDirectory(), "Jarir Cashier Display");
-        if (!root.exists()){
+        if (!root.exists()) {
             root.mkdir();
         }
-        File file = new File(root,"Cashier Display Monitoring.pdf");
-        try{
+        File file = new File(root, "Cashier Display Monitoring.pdf");
+        try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             pdfDocument.writeTo(fileOutputStream);
-            Toast.makeText(this,"File Created Successfully",Toast.LENGTH_SHORT).show();
-            Toast.makeText(this,""+file,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "File Created Successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "" + file, Toast.LENGTH_LONG).show();
 
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(this,"File Not Created",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "File Not Created", Toast.LENGTH_LONG).show();
         }
         pdfDocument.close();
 
     }
 
 
-
-
-
+    public void updateCashiersNumber(View view) {
+        cashierNumber();
+    }
 }
 
 

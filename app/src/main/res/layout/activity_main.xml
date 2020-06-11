@@ -17,6 +17,8 @@
         android:orientation="vertical"
         android:onClick="clearFocusTwo">
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -89,6 +91,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/cashierOne"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"
@@ -110,7 +113,7 @@
                     <ImageView
                         android:id="@+id/c1l"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/array">
@@ -120,7 +123,7 @@
                     <ImageView
                         android:id="@+id/c1e"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
 
                 </LinearLayout>
 
@@ -131,13 +134,14 @@
                     <ImageView
                         android:id="@+id/c1r"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
 
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/cashierTwo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"
@@ -160,7 +164,7 @@
                     <ImageView
                         android:id="@+id/c2l"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
 
                 </LinearLayout>
 
@@ -171,7 +175,7 @@
                     <ImageView
                         android:id="@+id/c2e"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
 
                 </LinearLayout>
 
@@ -182,13 +186,14 @@
                     <ImageView
                         android:id="@+id/c2r"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
 
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/cashierThree"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"
@@ -211,7 +216,7 @@
                     <ImageView
                         android:id="@+id/c3l"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/array">
@@ -221,7 +226,7 @@
                     <ImageView
                         android:id="@+id/c3e"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/array">
@@ -231,12 +236,13 @@
                     <ImageView
                         android:id="@+id/c3r"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/cashierFour"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"
@@ -259,7 +265,7 @@
                     <ImageView
                         android:id="@+id/c4l"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/array">
@@ -269,7 +275,7 @@
                     <ImageView
                         android:id="@+id/c4e"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/array">
@@ -279,12 +285,13 @@
                     <ImageView
                         android:id="@+id/c4r"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/cashierFive"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"
@@ -307,7 +314,7 @@
                     <ImageView
                         android:id="@+id/c5l"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/array">
@@ -317,7 +324,7 @@
                     <ImageView
                         android:id="@+id/c5e"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/array">
@@ -327,12 +334,13 @@
                     <ImageView
                         android:id="@+id/c5r"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/cashierSix"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"
@@ -355,7 +363,7 @@
                     <ImageView
                         android:id="@+id/c6l"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/array">
@@ -365,7 +373,7 @@
                     <ImageView
                         android:id="@+id/c6e"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/array">
@@ -375,17 +383,228 @@
                     <ImageView
                         android:id="@+id/c6r"
                         style="@style/tablePic"
-                        android:onClick="onClick"/>
+                        android:onClick="onClick" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cashierSeven"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 7" />
+
+            <LinearLayout
+                android:id="@+id/Table7"
+                style="@style/fullArray">
+
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c7l"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c7e"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c7r"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cashierEight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 8" />
+
+            <LinearLayout
+                android:id="@+id/Table8"
+                style="@style/fullArray">
+
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c8l"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c8e"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c8r"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cashierNine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 9" />
+
+            <LinearLayout
+                android:id="@+id/Table9"
+                style="@style/fullArray">
+
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c9l"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c9e"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c9r"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/cashierTen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/cashierNumber"
+                android:text="Cashier 10" />
+
+            <LinearLayout
+                android:id="@+id/Table10"
+                style="@style/fullArray">
+
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionL" />
+
+                    <ImageView
+                        android:id="@+id/c10l"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionE" />
+
+                    <ImageView
+                        android:id="@+id/c10e"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/array">
+
+                    <TextView style="@style/positionR" />
+
+                    <ImageView
+                        android:id="@+id/c10r"
+                        style="@style/tablePic"
+                        android:onClick="onClick" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Finish"
-        android:onClick="takeScreenShot"/>
-
+        android:onClick="takeScreenShot"
+        android:layout_weight="1"
+        android:layout_gravity="center"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Cashiers Number"
+        android:onClick="updateCashiersNumber"
+        android:textSize="11sp"
+        android:layout_weight="2"/>
+</LinearLayout>
 </LinearLayout>
