@@ -2,45 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
     android:background="@android:color/darker_gray"
-    android:orientation="horizontal"
-    android:id="@+id/container_final">
-
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/cashier_number"
         style="@style/cashierNumber"
-        android:text="Cashier "
-        android:id="@+id/cashier_number"/>
+        android:text="Cashier 1" />
 
-    <LinearLayout style="@style/array">
+    <LinearLayout style="@style/fullArray">
 
-        <TextView
-            style="@style/position"
-            android:text="Left" />
+        <LinearLayout style="@style/array">
 
-        <ImageView
-            style="@style/tablePic"
-            android:src="@drawable/ct"
-            android:id="@+id/cashier_left"/>
-    </LinearLayout>
-    <LinearLayout
-        style="@style/array">
-        <TextView
-            style="@style/position"
-            android:text="End" />
-        <ImageView
-            style="@style/tablePic"
-            android:src="@drawable/ct"
-            android:id="@+id/cashier_end"/>
-    </LinearLayout>
-    <LinearLayout
-        style="@style/array">
-        <TextView
-            style="@style/position"
-            android:text="Right" />
-        <ImageView
-            style="@style/tablePic"
-            android:src="@drawable/ct"
-            android:id="@+id/cashier_right"/>
+            <TextView style="@style/positionL" />
+
+            <ImageView
+                android:id="@+id/cashier_left"
+                style="@style/tablePic"
+                android:onClick="onClickTest"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/array">
+
+            <TextView style="@style/positionE" />
+
+            <ImageView
+                android:id="@+id/cashier_end"
+                style="@style/tablePic"/>
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/array">
+
+            <TextView style="@style/positionR" />
+
+            <ImageView
+                android:id="@+id/cashier_right"
+                style="@style/tablePic"/>
+
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

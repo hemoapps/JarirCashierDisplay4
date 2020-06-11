@@ -26,5 +26,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation files('libs/itextpdf-5.3.2.jar')
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'org.testng:testng:6.9.6'
+    configurations {
+        compile.exclude group: "junit", module: "junit"
+    }
 }

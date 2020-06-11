@@ -79,12 +79,13 @@ public class MainActivity extends AppCompatActivity {
             if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
             } else {
-                if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
+                if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     Toast.makeText(MainActivity.this, "Camera permission was not accepted", Toast.LENGTH_SHORT).show();
                 }
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             }
         }
+
     }
     private void onKeyListener() {
         week.setOnKeyListener(new View.OnKeyListener() {
@@ -337,6 +338,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"File Not Created",Toast.LENGTH_LONG).show();
         }
         pdfDocument.close();
+
     }
 
 
