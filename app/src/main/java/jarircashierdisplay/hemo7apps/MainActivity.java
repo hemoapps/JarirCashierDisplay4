@@ -2,6 +2,8 @@ package jarircashierdisplay.hemo7apps;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,6 +26,10 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.github.barteksc.pdfviewer.PDFView;
+
+import org.apache.tools.ant.types.FileList;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,6 +38,7 @@ import java.util.Date;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -65,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         onKeyListener();
         cashierNumber();
         filesPermissionChecker();
+
 
     }
 
@@ -473,6 +481,7 @@ public class MainActivity extends AppCompatActivity {
     public void takeScreenShot(View view) {
         bitScroll = getBitmapFromView(scrollView, scrollView.getChildAt(0).getHeight(), scrollView.getChildAt(0).getWidth());
         ConvertToPDF();
+
     }
 
     private Bitmap getBitmapFromView(View view, int height, int width) {
@@ -525,7 +534,35 @@ public class MainActivity extends AppCompatActivity {
         cashierNumber();
     }
 
+    public File getFile(Context context, String fileName) {
+        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            return null;
+        }
 
+        File storageDir = context.getExternalFilesDir(null);
+        return new File(storageDir, fileName);
+    }
+
+    public Uri getFileUri(Context context, String fileName) {
+        File file = getFile(context, fileName);
+        return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", file);
+    }
+
+    private void displayPdf(String fileName) {
+        Uri uri = getFileUri(this, fileName);
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(uri, "application/pdf");
+
+        // FLAG_GRANT_READ_URI_PERMISSION is needed on API 24+ so the activity opening the file can read it
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        if (intent.resolveActivity(getPackageManager()) == null) {
+            // Show an error
+        } else {
+            startActivity(intent);
+        }
+    }
 }
 
 

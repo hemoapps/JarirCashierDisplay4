@@ -91,6 +91,7 @@
         </LinearLayout>
 
         <LinearLayout
+
             android:id="@+id/cashierOne"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -581,6 +582,7 @@
                         android:id="@+id/c10r"
                         style="@style/tablePic"
                         android:onClick="onClick" />
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
