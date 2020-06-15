@@ -80,4 +80,16 @@
         <item name="android:background">@android:color/darker_gray</item>
     </style>
 
+    <style name="toolbarButton">
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_width">32dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="toolbarText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

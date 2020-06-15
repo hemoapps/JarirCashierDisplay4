@@ -2,7 +2,6 @@ package jarircashierdisplay.hemo7apps;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,18 +16,17 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StrictMode;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
-
-import com.github.barteksc.pdfviewer.PDFView;
-
-import org.apache.tools.ant.types.FileList;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -73,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
         cashierNumber();
         filesPermissionChecker();
 
+        //So you can open pdf file in method displayPdf()
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        builder.detectFileUriExposure();
 
     }
 
@@ -86,17 +88,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 if (options[item].equals("3 Cashiers")) {
-                findViewById(R.id.cashierFour).setVisibility(GONE);
-                findViewById(R.id.cashierFive).setVisibility(GONE);
-                findViewById(R.id.cashierSix).setVisibility(GONE);
-                findViewById(R.id.cashierSeven).setVisibility(GONE);
-                findViewById(R.id.cashierEight).setVisibility(GONE);
-                findViewById(R.id.cashierNine).setVisibility(GONE);
-                findViewById(R.id.cashierTen).setVisibility(GONE);
+                    findViewById(R.id.cashierFour).setVisibility(GONE);
+                    findViewById(R.id.cashierFive).setVisibility(GONE);
+                    findViewById(R.id.cashierSix).setVisibility(GONE);
+                    findViewById(R.id.cashierSeven).setVisibility(GONE);
+                    findViewById(R.id.cashierEight).setVisibility(GONE);
+                    findViewById(R.id.cashierNine).setVisibility(GONE);
+                    findViewById(R.id.cashierTen).setVisibility(GONE);
                     Toast.makeText(MainActivity.this, "3 Cashiers", Toast.LENGTH_SHORT).show();
                 } else if (options[item].equals("4 Cashiers")) {
-                    switch (findViewById(R.id.cashierFour).getVisibility()){
-                        case GONE : findViewById(R.id.cashierFour).setVisibility(View.VISIBLE);break;
+                    switch (findViewById(R.id.cashierFour).getVisibility()) {
+                        case GONE:
+                            findViewById(R.id.cashierFour).setVisibility(View.VISIBLE);
+                            break;
 
                     }
                     findViewById(R.id.cashierFive).setVisibility(GONE);
@@ -108,8 +112,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "4 Cashiers", Toast.LENGTH_SHORT).show();
 
                 } else if (options[item].equals("5 Cashiers")) {
-                    switch (findViewById(R.id.cashierFive).getVisibility()){
-                        case GONE : findViewById(R.id.cashierFive).setVisibility(View.VISIBLE);
+                    switch (findViewById(R.id.cashierFive).getVisibility()) {
+                        case GONE:
+                            findViewById(R.id.cashierFive).setVisibility(View.VISIBLE);
                             findViewById(R.id.cashierFour).setVisibility(VISIBLE);
                             break;
                     }
@@ -120,11 +125,12 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.cashierTen).setVisibility(GONE);
                     Toast.makeText(MainActivity.this, "5 Cashiers", Toast.LENGTH_SHORT).show();
                 } else if (options[item].equals("6 Cashiers")) {
-                    switch (findViewById(R.id.cashierSix).getVisibility()){
-                        case GONE : findViewById(R.id.cashierSix).setVisibility(View.VISIBLE);
+                    switch (findViewById(R.id.cashierSix).getVisibility()) {
+                        case GONE:
+                            findViewById(R.id.cashierSix).setVisibility(View.VISIBLE);
                             findViewById(R.id.cashierFour).setVisibility(VISIBLE);
                             findViewById(R.id.cashierFive).setVisibility(VISIBLE);
-                        break;
+                            break;
                     }
                     findViewById(R.id.cashierSeven).setVisibility(GONE);
                     findViewById(R.id.cashierEight).setVisibility(GONE);
@@ -132,50 +138,55 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.cashierTen).setVisibility(GONE);
                     Toast.makeText(MainActivity.this, "6 Cashiers", Toast.LENGTH_SHORT).show();
                 } else if (options[item].equals("7 Cashiers")) {
-                    switch (findViewById(R.id.cashierSeven).getVisibility()){
-                        case GONE : findViewById(R.id.cashierSeven).setVisibility(View.VISIBLE);
+                    switch (findViewById(R.id.cashierSeven).getVisibility()) {
+                        case GONE:
+                            findViewById(R.id.cashierSeven).setVisibility(View.VISIBLE);
                             findViewById(R.id.cashierFour).setVisibility(VISIBLE);
                             findViewById(R.id.cashierFive).setVisibility(VISIBLE);
                             findViewById(R.id.cashierSix).setVisibility(VISIBLE);
-                        break;
+                            break;
                     }
                     findViewById(R.id.cashierEight).setVisibility(GONE);
                     findViewById(R.id.cashierNine).setVisibility(GONE);
                     findViewById(R.id.cashierTen).setVisibility(GONE);
                     Toast.makeText(MainActivity.this, "7 Cashiers", Toast.LENGTH_SHORT).show();
                 } else if (options[item].equals("8 Cashiers")) {
-                    switch (findViewById(R.id.cashierEight).getVisibility()){
-                        case GONE : findViewById(R.id.cashierEight).setVisibility(View.VISIBLE);
+                    switch (findViewById(R.id.cashierEight).getVisibility()) {
+                        case GONE:
+                            findViewById(R.id.cashierEight).setVisibility(View.VISIBLE);
                             findViewById(R.id.cashierFour).setVisibility(VISIBLE);
                             findViewById(R.id.cashierFive).setVisibility(VISIBLE);
                             findViewById(R.id.cashierSix).setVisibility(VISIBLE);
                             findViewById(R.id.cashierSeven).setVisibility(VISIBLE);
-                        break;
+                            break;
                     }
                     findViewById(R.id.cashierNine).setVisibility(GONE);
                     findViewById(R.id.cashierTen).setVisibility(GONE);
                     Toast.makeText(MainActivity.this, "8 Cashiers", Toast.LENGTH_SHORT).show();
                 } else if (options[item].equals("9 Cashiers")) {
-                    switch (findViewById(R.id.cashierNine).getVisibility()){
-                        case GONE : findViewById(R.id.cashierNine).setVisibility(View.VISIBLE);
+                    switch (findViewById(R.id.cashierNine).getVisibility()) {
+                        case GONE:
+                            findViewById(R.id.cashierNine).setVisibility(View.VISIBLE);
                             findViewById(R.id.cashierFour).setVisibility(VISIBLE);
                             findViewById(R.id.cashierFive).setVisibility(VISIBLE);
                             findViewById(R.id.cashierSix).setVisibility(VISIBLE);
                             findViewById(R.id.cashierSeven).setVisibility(VISIBLE);
                             findViewById(R.id.cashierEight).setVisibility(VISIBLE);
-                        break;
+                            break;
                     }
                     findViewById(R.id.cashierTen).setVisibility(GONE);
                     Toast.makeText(MainActivity.this, "9 Cashiers", Toast.LENGTH_SHORT).show();
                 } else if (options[item].equals("10 Cashiers")) {
-                    switch (findViewById(R.id.cashierTen).getVisibility()){
-                        case GONE : findViewById(R.id.cashierTen).setVisibility(View.VISIBLE);
-                        findViewById(R.id.cashierFour).setVisibility(VISIBLE);
-                        findViewById(R.id.cashierFive).setVisibility(VISIBLE);
-                        findViewById(R.id.cashierSix).setVisibility(VISIBLE);
-                        findViewById(R.id.cashierSeven).setVisibility(VISIBLE);
-                        findViewById(R.id.cashierEight).setVisibility(VISIBLE);
-                        findViewById(R.id.cashierNine).setVisibility(VISIBLE);break;
+                    switch (findViewById(R.id.cashierTen).getVisibility()) {
+                        case GONE:
+                            findViewById(R.id.cashierTen).setVisibility(View.VISIBLE);
+                            findViewById(R.id.cashierFour).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierFive).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierSix).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierSeven).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierEight).setVisibility(VISIBLE);
+                            findViewById(R.id.cashierNine).setVisibility(VISIBLE);
+                            break;
                     }
                     findViewById(R.id.cashierTen).setVisibility(View.VISIBLE);
                     Toast.makeText(MainActivity.this, "10 Cashiers", Toast.LENGTH_SHORT).show();
@@ -188,15 +199,13 @@ public class MainActivity extends AppCompatActivity {
     private void cameraPermissionChecker() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-
             } else {
                 if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
                     Toast.makeText(MainActivity.this, "Camera permission was not accepted", Toast.LENGTH_SHORT).show();
                 }
-                requestPermissions(new String[]{Manifest.permission.CAMERA}, 1);
+                requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             }
         }
-
 
 
     }
@@ -213,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
     private void onKeyListener() {
         week.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -437,8 +447,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int item) {
                 if (options[item].equals("Take Photo")) {
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                        File f = new File(Environment.getExternalStorageDirectory(), "temp.jpg");
-//                        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
                     startActivityForResult(intent, 1);
                 } else if (options[item].equals("Choose from Gallery")) {
                     Intent intent = new Intent(Intent.ACTION_PICK);
@@ -447,10 +455,18 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
                     startActivityForResult(intent, 2);
                 } else if (options[item].equals("Preview")) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setType("image/*");
+                    Bitmap bitmap;
+                    bitmap = getBitmapFromView(chosen, chosen.getHeight(), chosen.getWidth());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    LayoutInflater inflater = getLayoutInflater();
+                    View dialogLayout = inflater.inflate(R.layout.preview_dialog, null);
+                    builder.setPositiveButton("OK", null);
+                    builder.setView(dialogLayout);
+                    ImageView imageView =dialogLayout.findViewById(R.id.previewDialogImage);
+                    imageView.setImageBitmap(bitmap);
+                    builder.show();
                 } else if (options[item].equals("Delete")) {
-                    img.setImageResource(R.drawable.ct);
+                    chosen.setImageResource(R.mipmap.cashier_table);
                 } else if (options[item].equals("Cancel")) {
                     dialog.dismiss();
                 }
@@ -482,7 +498,7 @@ public class MainActivity extends AppCompatActivity {
         bitScroll = getBitmapFromView(scrollView, scrollView.getChildAt(0).getHeight(), scrollView.getChildAt(0).getWidth());
         ConvertToPDF();
 
-    }
+    }//end takeScreenShot()
 
     private Bitmap getBitmapFromView(View view, int height, int width) {
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -526,7 +542,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "File Not Created , Try Again", Toast.LENGTH_LONG).show();
         }
         pdfDocument.close();
-
     }
 
 
@@ -534,35 +549,32 @@ public class MainActivity extends AppCompatActivity {
         cashierNumber();
     }
 
-    public File getFile(Context context, String fileName) {
-        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            return null;
-        }
 
-        File storageDir = context.getExternalFilesDir(null);
-        return new File(storageDir, fileName);
-    }
-
-    public Uri getFileUri(Context context, String fileName) {
-        File file = getFile(context, fileName);
-        return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", file);
-    }
-
-    private void displayPdf(String fileName) {
-        Uri uri = getFileUri(this, fileName);
-
+    public void displayPdf(View view) {
+        String sdcard = Environment.getExternalStorageDirectory().getAbsolutePath();
+        Uri uri = Uri.fromFile(new File(sdcard + "/Jarir Cashier Display/Cashier Display Monitoring.pdf"));
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndType(uri, "application/pdf");
-
-        // FLAG_GRANT_READ_URI_PERMISSION is needed on API 24+ so the activity opening the file can read it
+        Log.i("TAG", "displayPdf:" + uri);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
         if (intent.resolveActivity(getPackageManager()) == null) {
-            // Show an error
         } else {
             startActivity(intent);
-        }
-    }
+        }//end else
+    }//end displayPdf()
+
+
+    public void sharePdf(View view) {
+        String sdcard = Environment.getExternalStorageDirectory().getAbsolutePath();
+        Uri uri = Uri.fromFile(new File(sdcard + "/Jarir Cashier Display/Cashier Display Monitoring.pdf"));
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Cashier Display Monitoring(" + branch.getText().toString() + ")");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hello,\nThis is the report for date " + date.getText().toString() + "\n" + week.getText().toString());
+        emailIntent.setType("application/pdf");
+        emailIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        startActivity(Intent.createChooser(emailIntent, "Send email using:"));
+
+    }//end sharePdf()
 }
 
 
